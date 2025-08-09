@@ -103,7 +103,7 @@ def create_db():
     conn.close()    
 
 def do_files_exist():
-    return any(list(map(exists, ["config.ini", "images", "data.db"])))
+    return any(list(map(exists, ["config.ini", "images", "data.db"]))
 
 if __name__ == "__main__":
     if "--nointeract" in argv:
