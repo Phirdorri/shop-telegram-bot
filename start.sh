@@ -1,4 +1,11 @@
-clear
-echo "Starting the bot..."
-python3.10 src/main.py
+#!/bin/sh
+set -e
 
+echo "Running installer..."
+python3 installer.py --nointeract
+
+echo "Starting bot in background..."
+python3 src/main.py &
+
+echo "Starting HTTP server on port ${PORT:-10000}..."
+exec python3 -u -m http.server "${PORT:-10000}"
