@@ -1,11 +1,11 @@
 #!/bin/sh
-set -ex
+set -e
 
-echo "Running installer..."
+echo "Running installer via Python..."
 python3 installer.py --nointeract
 
 echo "Starting bot in background..."
 python3 src/main.py &
 
-echo "Starting HTTP server on port ${PORT:-10000}..."
+echo "Starting HTTP server..."
 exec python3 -u -m http.server "${PORT:-10000}"
