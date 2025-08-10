@@ -1,5 +1,5 @@
 #!/bin/sh
-set -e
+set -ex
 
 echo "Running installer..."
 python3 installer.py --nointeract
